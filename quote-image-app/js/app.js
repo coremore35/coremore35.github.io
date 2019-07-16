@@ -27,6 +27,7 @@ const handleData = data => {
   console.log(`Current Image Endpoint: ${imgEndpoint}`);
 
   const handleImg = imgData => {
+    console.log(imgData);
     console.log(imgData.results[0].urls.full);
     const $addImage = $('<img>').addClass('currentImg');
     $addImage.attr('src', `${imgData.results[0].urls.regular}`);
@@ -45,12 +46,24 @@ $('.random').on('click', event => {
   // event.handleData();
 
   $('.currentQuote').remove();
+  $('.currentAuthor').remove();
+  $('.currentImg').remove();
 
   $.ajax({
     url: endpoint
   }).then(handleData);
 });
 
+///////////////
+//
+////////////
+/////////
+
+///////
+//GRAVEYARD
+///
+//
+//
 // $.ajax({
 //   url: endpoint
 // }).then(handleData);

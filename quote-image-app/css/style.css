@@ -15,7 +15,7 @@ body {
 
 .main {
   width: 70%;
-  height: 90vh;
+  height: 80vh;
 }
 
 .sidebar {
@@ -23,4 +23,8 @@ body {
   height: 40vh;
   justify-content: space-evenly;
   margin: 15vh 0 0 0;
+}
+
+.currentImg {
+  width: 70vw;
 }

@@ -19,18 +19,31 @@ const handleData = data => {
   $addAuthor.text(`--${data.quote.author}`);
   $('.quotes').append($addAuthor);
 
-  ////Adding Img
+  ////////////////////////
+  ///ADDING IMAGE
+
   currentTag = data.quote.tags[0];
   let imgEndpoint = `https://api.unsplash.com/search/photos/?client_id=41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6&query=${currentTag}`;
 
-  console.log(`Current Tag: ${currentTag}`);
-  console.log(`Current Image Endpoint: ${imgEndpoint}`);
+  //   console.log(`Current Tag: ${currentTag}`);
+  //   console.log(`Current Image Endpoint: ${imgEndpoint}`);
 
   const handleImg = imgData => {
-    console.log(imgData);
-    console.log(imgData.results[0].urls.full);
+    // console.log(imgData);
+    // console.log(imgData.results[0].urls.full);
+
+    let i = 1;
     const $addImage = $('<img>').addClass('currentImg');
     $addImage.attr('src', `${imgData.results[0].urls.regular}`);
+
+    setInterval(() => {
+      if (i < 10) {
+        $addImage.attr('src', `${imgData.results[i].urls.regular}`);
+        i++;
+      } else if (i == 10) {
+        i = 0;
+      }
+    }, 5000);
 
     $('.images').append($addImage);
   };
@@ -42,6 +55,7 @@ const handleData = data => {
 
 ////////////////////////
 //Random Button--On Click event
+
 $('.random').on('click', event => {
   // event.handleData();
 

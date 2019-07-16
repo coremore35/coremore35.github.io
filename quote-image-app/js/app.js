@@ -23,13 +23,15 @@ const handleData = data => {
   currentTag = data.quote.tags[0];
   let imgEndpoint = `https://api.unsplash.com/search/photos/?client_id=41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6&query=${currentTag}`;
 
-  console.log(currentTag);
-  console.log(imgEndpoint);
+  console.log(`Current Tag: ${currentTag}`);
+  console.log(`Current Image Endpoint: ${imgEndpoint}`);
 
   const handleImg = imgData => {
-    // console.log(imgData);
+    console.log(imgData.results[0].urls.full);
     const $addImage = $('<img>').addClass('currentImg');
-    $addImage;
+    $addImage.attr('src', `${imgData.results[0].urls.regular}`);
+
+    $('.images').append($addImage);
   };
 
   $.ajax({

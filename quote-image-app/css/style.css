@@ -1,5 +1,6 @@
 body {
-  background-color: lightsalmon;
+  background-color: paleturquoise;
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 .wrapper {
@@ -27,4 +28,12 @@ body {
 
 .currentImg {
   width: 70vw;
+}
+
+.keyword-query {
+  width: 140px;
+  height: 20px;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }

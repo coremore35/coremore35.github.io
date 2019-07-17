@@ -35,23 +35,37 @@ const handleData = data => {
     let i = 1;
     const $addImage = $('<img>').addClass('currentImg');
     $addImage.attr('src', `${imgData.results[0].urls.regular}`);
+    const $addPhotographer = $('<h6>').addClass('currentPhotographer');
+    $addPhotographer.text(`Photo credit ${imgData.results[0].user.name}`);
 
     setInterval(() => {
       if (i < 10) {
         $addImage.attr('src', `${imgData.results[i].urls.regular}`);
+        $addPhotographer.text(`Photo Credit: ${imgData.results[i].user.name}`);
+
         i++;
       } else if (i == 10) {
         i = 0;
       }
     }, 5000);
 
-    $('.images').append($addImage);
+    $('.images').prepend($addImage);
+    $('.images').append($addPhotographer);
   };
 
   $.ajax({
     url: imgEndpoint
   }).then(handleImg);
 };
+
+////////////////////////
+//Search quote by Keyword
+
+$('.keyword-query').on('submit', event => {
+  $.ajax({
+    url: endpoint
+  }).then(handleData);
+});
 
 ////////////////////////
 //Random Button--On Click event

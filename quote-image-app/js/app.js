@@ -3,27 +3,30 @@ console.log('js is working');
 const endpoint = 'https://favqs.com/api/qotd';
 
 ///////////////////////
-// Handles Quote Data
+// HANDLES RANDOM QUOTE DATA
 
-const handleData = data => {
-  console.log(data);
-  console.log(data.quote.body);
+const handleRandomData = data => {
+  //   console.log(data);
+  //   console.log(data.quote.body);
 
-  ////Adding Quote
+  /////Adding Quote
   const $addQuote = $('<h3>').addClass('currentQuote');
   $addQuote.text(`"${data.quote.body}"`);
   $('.quotes').append($addQuote);
 
+  const $div = $('<div>');
+  $('.currentQuote').append($div);
+
   ////Adding Author
   const $addAuthor = $('<h5>').addClass('currentAuthor');
-  $addAuthor.text(`--${data.quote.author}`);
-  $('.quotes').append($addAuthor);
+  $addAuthor.text(`-${data.quote.author}`);
+  $div.append($addAuthor);
 
   ////////////////////////
-  ///ADDING IMAGE
+  ///Adding Image
 
   currentTag = data.quote.tags[0];
-  let imgEndpoint = `https://api.unsplash.com/search/photos/?client_id=41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6&query=${currentTag}`;
+  let imgEndpoint = `https://api.unsplash.com/search/photos/?client_id=41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6&query=${currentTag}/landscape`;
 
   //   console.log(`Current Tag: ${currentTag}`);
   //   console.log(`Current Image Endpoint: ${imgEndpoint}`);
@@ -59,57 +62,51 @@ const handleData = data => {
 };
 
 ////////////////////////
-//Search quote by Keyword
+//SEARCH QUOTE BY KEYWORD
 
-$('.keyword-query').on('submit', event => {
+$('form').on('submit', event => {
+  event.preventDefault();
+  console.log('submit clicked');
   $.ajax({
-    url: endpoint
+    url: 'https://favqs.com/api/activities/?type=tag&filter=funny',
+    headers: {
+      Authorization: 'Bearer 6b4ebee16d4c5a07af274a23b80ed12c',
+      // 'X-CSRF-TOKEN':'xxxxxxxxxxxxxxxxxxxx',
+      'Content-Type': 'application/json'
+    }
+    // ,
+    // method: 'POST',
+    // dataType: 'json',
+    // // data: YourData,
+    // success: function(data) {
+    //   console.log('succes: ' + data);
+    // }
   }).then(handleData);
 });
 
 ////////////////////////
-//Random Button--On Click event
+//RANDOM QUOTE BUTTON ON-CLICK
 
 $('.random').on('click', event => {
-  // event.handleData();
+  // event.handleRandomData();
 
+  $('.currentImg').remove();
+  $('.currentPhotographer').remove();
   $('.currentQuote').remove();
   $('.currentAuthor').remove();
-  $('.currentImg').remove();
 
   $.ajax({
     url: endpoint
-  }).then(handleData);
+  }).then(handleRandomData);
 });
 
+////////////////
+//AUTOMATIC START
+
+// $.ajax({
+//   url: endpoint
+// }).then(Random);
 ///////////////
 //
 ////////////
 /////////
-
-///////
-//GRAVEYARD
-///
-//
-//
-// $.ajax({
-//   url: endpoint
-// }).then(handleData);
-
-// const imgEndpoint =
-//   'https://api.unsplash.com/photos/?client_id=41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6&query=happiness';
-// console.log(imgEndpoint);
-
-// $.ajax({
-//   url: imgEndpoint
-//   //   headers: {
-//   //     Authorization:
-//   //       'Client-ID 41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6'
-//   //   }
-// }).then(data => console.log(data));
-
-// $.ajax({
-//     url: imgEndpoint
-// }).then(imgData) => {
-//     console.log(imgData)
-// }

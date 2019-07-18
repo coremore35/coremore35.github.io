@@ -1,33 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400i&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
 body {
-  background-color: paleturquoise;
-  font-family: Helvetica, Arial, sans-serif;
+  background-color: rgb(58, 204, 204);
+  font-family: 'Cormorant Garamond', serif;
 }
 
 .wrapper {
-  display: flex;
+  /* display: flex; */
   justify-content: space-between;
 }
 
 .main,
 .sidebar {
-  border: 3px solid black;
-  padding: 15px;
+  /* border: 3px solid black;
+  padding: 15px; */
 }
 
 .main {
-  width: 70%;
-  height: 80vh;
+  width: 100%;
+  height: 100%;
 }
 
 .sidebar {
   width: 20%;
-  height: 40vh;
-  justify-content: space-evenly;
-  margin: 15vh 0 0 0;
+  height: 100%;
+  /* justify-content: space-evenly; */
+
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .currentImg {
-  width: 70vw;
+  width: 100vw;
+  z-index: 0;
 }
 
 .keyword-query {
@@ -37,3 +46,37 @@ body {
   border-radius: 4px;
   border: 1px solid #ccc;
 }
+
+.currentQuote {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #ffffff;
+  text-shadow: 1px 1px #000;
+  /* z-index: 1; */
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+
+.currentAuthor {
+  padding: 5px;
+}
+
+h3 {
+  font-size: 2.5em;
+}
+
+.currentPhotographer {
+  color: #444;
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+  background: #ddd;
+  padding: 1px;
+}
+
+.currentImg {
+  height: 100vh;
+}
+
+/* look into adding a light background on text */

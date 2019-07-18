@@ -167,7 +167,26 @@ $('.random').on('click', event => {
 $.ajax({
   url: endpoint
 }).then(handleData);
+
 ///////////////
+//Toggle
+
+$('#closed-sidebar').on('click', event => {
+  console.log($(event.currentTarget));
+  $(event.currentTarget).css('display', 'none');
+
+  $('.sidebar').css('display', 'block');
+  //
+});
+
+$('#open-sidebar').on('click', event => {
+  console.log($(event.currentTarget));
+  $('.sidebar').css('display', 'none');
+
+  $('#closed-sidebar').css('display', 'block');
+  //
+});
+
 //
 ////////////
 /////////

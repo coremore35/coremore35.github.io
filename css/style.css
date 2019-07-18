@@ -1,12 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond:400i&display=swap');
 
 * {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 body {
   background-color: rgb(58, 204, 204);
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Cormorant', 'Garamond', serif;
 }
 
 .wrapper {
@@ -26,10 +27,11 @@ body {
 }
 
 .sidebar {
-  width: 20%;
+  width: 250px;
   height: 100%;
-  /* justify-content: space-evenly; */
-
+  font-family: Verdana, Geneva, Tahoma, sans-serif, serif;
+  color: #ccc;
+  display: none;
   position: fixed;
   background-color: rgba(0, 0, 0, 0.5);
 }
@@ -56,6 +58,8 @@ body {
   /* z-index: 1; */
   text-align: center;
   transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.3);
+  padding: 3px;
 }
 
 .currentAuthor {
@@ -64,6 +68,11 @@ body {
 
 h3 {
   font-size: 2.5em;
+}
+
+h5 {
+  font-size: 0.65em;
+  color: #faf3c0;
 }
 
 .currentPhotographer {
@@ -77,6 +86,25 @@ h3 {
 
 .currentImg {
   height: 100vh;
+  overflow: hidden;
 }
 
+#closed-sidebar {
+  float: right;
+  padding: 4px;
+  font-size: 2rem;
+  position: fixed;
+  color: #ccc;
+  text-shadow: 1.5px 1.5px 5px #000;
+  top: 0px;
+  left: 15px;
+}
+
+#open-sidebar {
+  float: right;
+  padding: 4px;
+  font-size: 2rem;
+  color: #ccc;
+  text-shadow: 1.5px 1.5px 5px #000;
+}
 /* look into adding a light background on text */

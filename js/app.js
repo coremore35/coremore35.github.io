@@ -123,6 +123,10 @@ $('form').on('submit', event => {
   console.log('submit clicked');
 
   let keywordQuery = $('.keyword-query').val();
+  $('.currentImg').remove();
+  $('.currentPhotographer').remove();
+  $('.currentQuote').remove();
+  $('.currentAuthor').remove();
 
   $.ajax({
     url: `https://favqs.com/api/quotes/?type=tag&filter=${keywordQuery}`,

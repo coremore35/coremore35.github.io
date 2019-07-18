@@ -160,9 +160,9 @@ $('.random').on('click', event => {
 ////////////////
 //Automatic Start
 
-// $.ajax({
-//   url: endpoint
-// }).then(handleData);
+$.ajax({
+  url: endpoint
+}).then(handleData);
 ///////////////
 //
 ////////////

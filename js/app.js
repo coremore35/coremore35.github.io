@@ -1,14 +1,9 @@
-console.log('js is working');
-
 const endpoint = 'https://favqs.com/api/qotd';
 
 //////////////////////////////////////////////////////
 // Handles Random Quote Data
 
 const handleData = data => {
-  console.log(data);
-  console.log(data.quote.body);
-
   ////Adding Quote
   const $addQuote = $('<h3>').addClass('currentQuote');
   $addQuote.text(`"${data.quote.body}"`);
@@ -27,13 +22,7 @@ const handleData = data => {
   currentTag = data.quote.tags[0];
   let imgEndpoint = `https://api.unsplash.com/search/photos/?client_id=41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6&query=${currentTag}/landscape`;
 
-  //   console.log(`Current Tag: ${currentTag}`);
-  //   console.log(`Current Image Endpoint: ${imgEndpoint}`);
-
   const handleImg = imgData => {
-    // console.log(imgData);
-    // console.log(imgData.results[0].urls.full);
-
     let i = 1;
     const $addImage = $('<img>').addClass('currentImg');
     $addImage.attr('src', `${imgData.results[0].urls.regular}`);
@@ -64,9 +53,6 @@ const handleData = data => {
 //Search Quote by Keyword
 
 const handleKeywordData = data => {
-  console.log(data);
-  console.log(data.quotes[0].body);
-
   ////Adding Quote
   const $addQuote = $('<h3>').addClass('currentQuote');
   $addQuote.text(`"${data.quotes[0].body}"`);
@@ -124,7 +110,6 @@ const handleKeywordData = data => {
 
 $('form').on('submit', event => {
   event.preventDefault();
-  console.log('submit clicked');
 
   if ($('.keyword-query').val('')) {
     $.ajax({
@@ -177,7 +162,6 @@ $.ajax({
 //TOGGLE SIDEBAR MENU
 
 $('#closed-sidebar').on('click', event => {
-  console.log($(event.currentTarget));
   $('#closed-sidebar').fadeOut(500);
   $('.sidebar').fadeIn(1000);
 
@@ -185,7 +169,6 @@ $('#closed-sidebar').on('click', event => {
 });
 
 $('#open-sidebar').on('click', event => {
-  console.log($(event.currentTarget));
   $('.sidebar').fadeOut(1000);
   $('#closed-sidebar').fadeIn(1000);
   $('#logo').animate({ opacity: 0.8 }, 2000);

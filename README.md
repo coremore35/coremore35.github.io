@@ -19,7 +19,8 @@ The purpose of this first project is construct meaning of my learning of differe
 
 ## Screenshots
 
-![Example screenshot](./img/screenshot1)
+![Example layout](/images/screenshot1.png)
+![Example keyword entry](/images/screenshot2.png)
 
 ## Technologies
 
@@ -27,6 +28,8 @@ The purpose of this first project is construct meaning of my learning of differe
 - CSS3
 - Javascript ES6
 - JQuery 3.4.1
+- FavQs API (https://favqs.com/api/)
+- Unsplash API (https://unsplash.com/developers)
 
 ## Setup
 
@@ -34,8 +37,33 @@ Describe how to install / setup your local environement / add link to demo versi
 
 ## Code Examples
 
-Show examples of usage:
-`put-your-code-here`
+`
+
+    const handleImg = imgData => {
+
+        let i = 1;
+        const $addImage = $('<img>').addClass('currentImg');
+        $addImage.attr('src', `${imgData.results[0].urls.regular}`);
+        const $addPhotographer = $('<h6>').addClass('currentPhotographer');
+        $addPhotographer.text(`Photo credit ${imgData.results[0].user.name}`);
+
+        setInterval(() => {
+        if (i < 10) {
+         $addImage.attr('src', `${imgData.results[i].urls.regular}`);
+            $addPhotographer.text(`Photo Credit: ${imgData.results[i].user.name}`);
+
+            i++;
+        } else if (i == 10) {
+         i = 0;
+        }
+        }, 5000);
+
+        $('.images').prepend($addImage);
+        $('.images').append($addPhotographer);
+
+    };
+
+`
 
 ## Features
 
@@ -61,3 +89,7 @@ Add here credits. Project inspired by..., based on...
 ## Contact
 
 Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+
+```
+
+```

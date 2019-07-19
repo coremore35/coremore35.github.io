@@ -171,12 +171,13 @@ footer {
   color: #ddd;
   width: 100vw;
   padding: 2px;
+  line-height: 1.25em;
 }
 
-a {
-  color: #ccc;
+/* a {
+  color: #111;
   text-decoration: none;
-}
+} */
 
 .design-by {
   float: left;
@@ -222,11 +223,15 @@ a {
   margin: 20% auto;
   padding: 20px;
   width: 70%;
-  height: 200px;
+  height: 220px;
   box-shadow: 0 5px 8px 0 rgba(255, 255, 255, 0.2),
     0 7px 20px 0 rgba(255, 255, 255, 0.17);
 }
 
+.modal-text {
+  color: #333;
+  width: 95%;
+}
 .closeBtn {
   color: #ccc;
   float: right;
@@ -253,4 +258,16 @@ a {
 
 #openModal:hover {
   color: #408c99;
+}
+
+.contact-info {
+  float: right;
+  color: #408c99;
+  margin: 5px;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.contact-info > div::after {
+  padding: 10px;
 }

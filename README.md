@@ -1,6 +1,6 @@
 # Project Name
 
-> Here goes your awesome project description!
+> Quote Loft
 
 ## Table of contents
 
@@ -10,7 +10,6 @@
 - [Setup](#setup)
 - [Features](#features)
 - [Status](#status)
-- [Inspiration](#inspiration)
 - [Contact](#contact)
 
 ## General info
@@ -69,26 +68,23 @@ Describe how to install / setup your local environement / add link to demo versi
 
 List of features ready and TODOs for future development
 
-- Awesome feature 1
-- Awesome feature 2
-- Awesome feature 3
+- Utilizes two APIs
+- Responsive web-design
+- Takes user input to display images/quotes
 
 To-do list:
 
-- Wow improvement to be done 1
-- Wow improvement to be done 2
+- I would like to clean up the functions so that they are not so lengthy. This will also help to more easily make needed changes in the future.
 
 ## Status
 
-Project is: _in progress_, _finished_, _no longer continue_ and why?
-
-## Inspiration
-
-Add here credits. Project inspired by..., based on...
+Project is: _finished_, but there is room for growth as I gain more skills that can be applied.
 
 ## Contact
 
-Created by [@flynerdpl](https://www.flynerd.pl/) - feel free to contact me!
+Created by Corey Morrison (https://coremore35.github.io) corey.neil.morrison@gmail.com
+
+- feel free to contact me!
 
 ```
 

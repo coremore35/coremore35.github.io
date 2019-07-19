@@ -6,7 +6,7 @@
   padding: 0;
 }
 body {
-  background-color: rgb(58, 204, 204);
+  background-color: #000;
   font-family: 'Cormorant', 'Garamond', serif;
 }
 
@@ -62,8 +62,8 @@ h5 {
 .currentPhotographer {
   color: #444;
   position: absolute;
-  bottom: 8px;
-  right: 16px;
+  bottom: 30px;
+  right: 8px;
   background: rgba(221, 221, 221, 0.5);
   padding: 2px;
 }
@@ -71,6 +71,7 @@ h5 {
 .currentImg {
   height: 100vh;
   overflow: hidden;
+  object-fit: cover;
 }
 
 #closed-sidebar {
@@ -84,6 +85,11 @@ h5 {
   background: rgba(0, 0, 0, 0.1);
 }
 
+#closed-sidebar:hover {
+  background: rgba(0, 0, 0, 0.4);
+  transition: background 1s;
+}
+
 #open-sidebar {
   float: right;
   padding: 4px;
@@ -92,6 +98,7 @@ h5 {
   text-shadow: 1.5px 1.5px 5px #000;
   text-align: center;
 }
+
 /* look into adding a light background on text */
 
 #logo {
@@ -147,4 +154,48 @@ h5 {
 
 form {
   margin: 40px;
+}
+
+footer {
+  display: inline-block;
+  position: fixed;
+  bottom: 0;
+  display: block;
+  background-color: #000;
+  color: #ddd;
+  width: 100vw;
+  padding: 2px;
+}
+
+a {
+  color: #ccc;
+  text-decoration: none;
+}
+
+.design-by {
+  float: left;
+}
+
+.about {
+  float: right;
+  order: 2;
+  padding: 0 10px;
+}
+
+.contact {
+  float: right;
+  order: 1;
+  padding: 0 10px;
+}
+
+.design-by {
+  font-size: 0.9em;
+  color: #ccc;
+}
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .currentQuote {
+    font-size: 1.5em;
+  }
 }

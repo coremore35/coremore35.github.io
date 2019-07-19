@@ -169,23 +169,44 @@ $.ajax({
 }).then(handleData);
 
 ///////////////
-//Toggle
+//TOGGLE
 
 $('#closed-sidebar').on('click', event => {
   console.log($(event.currentTarget));
-  $(event.currentTarget).css('display', 'none');
+  // $(event.currentTarget).css('display', 'none');
+  $('#closed-sidebar').fadeOut(500);
+  $('.sidebar').fadeIn(1000);
 
-  $('.sidebar').css('display', 'block');
+  $('#logo').animate({ opacity: 1 }, 1500);
+  // .css('opacity', '1');
+
   //
 });
 
 $('#open-sidebar').on('click', event => {
   console.log($(event.currentTarget));
-  $('.sidebar').css('display', 'none');
-
-  $('#closed-sidebar').css('display', 'block');
+  $('.sidebar').fadeOut(1000);
+  $('#closed-sidebar').fadeIn(1000);
+  $('#logo').animate({ opacity: 0.8 }, 2000);
   //
 });
+
+// // TOGGLEWORKS
+// $('#closed-sidebar').on('click', event => {
+//   console.log($(event.currentTarget));
+//   $(event.currentTarget).css('display', 'none');
+
+//   $('.sidebar').css('display', 'block');
+//   //
+// });
+
+// $('#open-sidebar').on('click', event => {
+//   console.log($(event.currentTarget));
+//   $('.sidebar').css('display', 'none');
+
+//   $('#closed-sidebar').css('display', 'block');
+//   //
+// });
 
 //
 ////////////

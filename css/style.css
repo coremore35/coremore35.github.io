@@ -215,6 +215,7 @@ footer {
   width: 100%;
   overflow: auto;
   background-color: rgba(0, 0, 0, 0.7);
+  padding: 10px;
 }
 
 .modal-textbox {
@@ -223,15 +224,16 @@ footer {
   margin: 20% auto;
   padding: 20px;
   width: 70%;
-  height: 220px;
   box-shadow: 0 5px 8px 0 rgba(255, 255, 255, 0.2),
     0 7px 20px 0 rgba(255, 255, 255, 0.17);
+  overflow: scroll;
 }
 
 .modal-text {
   color: #333;
   width: 95%;
 }
+
 .closeBtn {
   color: #ccc;
   float: right;

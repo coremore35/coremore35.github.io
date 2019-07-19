@@ -113,6 +113,10 @@ const handleKeywordData = data => {
 
   $('form').trigger('reset');
 
+  $('.sidebar').fadeOut(1000);
+  $('#closed-sidebar').fadeIn(1000);
+  $('#logo').animate({ opacity: 0.8 }, 2000);
+
   $.ajax({
     url: imgEndpoint
   }).then(handleImg);

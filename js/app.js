@@ -60,7 +60,7 @@ const handleData = data => {
   }).then(handleImg);
 };
 
-/////////////////////////////////////////////////////////////
+//////////////////////////////////////////
 //Search Quote by Keyword
 
 const handleKeywordData = data => {
@@ -74,6 +74,7 @@ const handleKeywordData = data => {
 
   const $div = $('<div>');
   $('.currentQuote').append($div);
+
   ////Adding Author
   const $addAuthor = $('<h5>').addClass('currentAuthor');
   $addAuthor.text(`-${data.quotes[0].author}`);
@@ -85,13 +86,7 @@ const handleKeywordData = data => {
   currentTag = $('.keyword-query').val();
   let imgEndpoint = `https://api.unsplash.com/search/photos/?client_id=41e8ce17e02f127cb8b8bd1ad955fc22b0d9eae2023afc88ba2cdcdbb565d7d6&query=${currentTag}/landscape`;
 
-  //   //   console.log(`Current Tag: ${currentTag}`);
-  //   //   console.log(`Current Image Endpoint: ${imgEndpoint}`);
-
   const handleImg = imgData => {
-    // console.log(imgData);
-    // console.log(imgData.results[0].urls.full);
-
     let i = 1;
     const $addImage = $('<img>').addClass('currentImg');
     $addImage.attr('src', `${imgData.results[0].urls.regular}`);
@@ -113,6 +108,11 @@ const handleKeywordData = data => {
     $('.images').append($addPhotographer);
   };
 
+  ///////////////////////
+  //RESET FORM FIELD
+
+  $('form').trigger('reset');
+
   $.ajax({
     url: imgEndpoint
   }).then(handleImg);
@@ -132,16 +132,8 @@ $('form').on('submit', event => {
     url: `https://favqs.com/api/quotes/?filter=${keywordQuery}`,
     headers: {
       Authorization: 'Bearer 6b4ebee16d4c5a07af274a23b80ed12c',
-      // 'X-CSRF-TOKEN':'xxxxxxxxxxxxxxxxxxxx',
       'Content-Type': 'application/json'
     }
-    // ,
-    // method: 'POST',
-    // dataType: 'json',
-    // // data: YourData,
-    // success: function(data) {
-    //   console.log('succes: ' + data);
-    // }
   }).then(handleKeywordData);
 });
 
@@ -149,8 +141,6 @@ $('form').on('submit', event => {
 //Random Button--On Click event
 
 $('.random').on('click', event => {
-  // event.handleData();
-
   $('.currentImg').remove();
   $('.currentPhotographer').remove();
   $('.currentQuote').remove();
@@ -169,18 +159,14 @@ $.ajax({
 }).then(handleData);
 
 ///////////////
-//TOGGLE
+//TOGGLE SIDEBAR MENU
 
 $('#closed-sidebar').on('click', event => {
   console.log($(event.currentTarget));
-  // $(event.currentTarget).css('display', 'none');
   $('#closed-sidebar').fadeOut(500);
   $('.sidebar').fadeIn(1000);
 
   $('#logo').animate({ opacity: 1 }, 1500);
-  // .css('opacity', '1');
-
-  //
 });
 
 $('#open-sidebar').on('click', event => {
@@ -192,7 +178,7 @@ $('#open-sidebar').on('click', event => {
 });
 
 /////////////
-// ABOUT MODAL
+// MORE INFO MODAL
 
 const $openBtn = $('#openModal');
 const $modal = $('#modal');
@@ -211,23 +197,6 @@ $closeBtn.on(
     $modal.css('display', 'none');
   })
 );
-
-// // TOGGLEWORKS
-// $('#closed-sidebar').on('click', event => {
-//   console.log($(event.currentTarget));
-//   $(event.currentTarget).css('display', 'none');
-
-//   $('.sidebar').css('display', 'block');
-//   //
-// });
-
-// $('#open-sidebar').on('click', event => {
-//   console.log($(event.currentTarget));
-//   $('.sidebar').css('display', 'none');
-
-//   $('#closed-sidebar').css('display', 'block');
-//   //
-// });
 
 //
 ////////////

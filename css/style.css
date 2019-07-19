@@ -49,6 +49,8 @@ body {
 
 .currentAuthor {
   padding: 5px;
+  font-size: 0.65em;
+  color: #56bdca;
 }
 
 h3 {
@@ -56,8 +58,6 @@ h3 {
 }
 
 h5 {
-  font-size: 0.65em;
-  color: #faf3c0;
 }
 
 .currentPhotographer {
@@ -89,6 +89,7 @@ h5 {
 #closed-sidebar:hover {
   background: rgba(0, 0, 0, 0.4);
   transition: background 1s;
+  cursor: pointer;
 }
 
 #open-sidebar {
@@ -100,8 +101,9 @@ h5 {
   text-align: center;
 }
 
-#closed-sidebar:hover {
+#open-sidebar:hover {
   cursor: pointer;
+  color: #fff;
 }
 /* look into adding a light background on text */
 
@@ -131,7 +133,7 @@ h5 {
 .random,
 .submit-btn {
   width: 150px;
-  background: linear-gradient(to bottom, #599bb3 5%, #408c99 100%);
+  background: linear-gradient(to bottom, #599bb3 5%, #47a1ad 100%);
   color: #ffffff;
   font-size: 1em;
   padding: 7px 15px;

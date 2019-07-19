@@ -126,19 +126,30 @@ $('form').on('submit', event => {
   event.preventDefault();
   console.log('submit clicked');
 
-  let keywordQuery = $('.keyword-query').val();
-  $('.currentImg').remove();
-  $('.currentPhotographer').remove();
-  $('.currentQuote').remove();
-  $('.currentAuthor').remove();
+  if ($('.keyword-query').val('')) {
+    $.ajax({
+      url: endpoint
+    }).then(handleData);
+    $('.currentImg').remove();
+    $('.currentPhotographer').remove();
+    $('.currentQuote').remove();
+    $('.currentAuthor').remove();
+  } else {
+    let keywordQuery = $('.keyword-query').val();
 
-  $.ajax({
-    url: `https://favqs.com/api/quotes/?filter=${keywordQuery}`,
-    headers: {
-      Authorization: 'Bearer 6b4ebee16d4c5a07af274a23b80ed12c',
-      'Content-Type': 'application/json'
-    }
-  }).then(handleKeywordData);
+    $('.currentImg').remove();
+    $('.currentPhotographer').remove();
+    $('.currentQuote').remove();
+    $('.currentAuthor').remove();
+
+    $.ajax({
+      url: `https://favqs.com/api/quotes/?filter=${keywordQuery}`,
+      headers: {
+        Authorization: 'Bearer 6b4ebee16d4c5a07af274a23b80ed12c',
+        'Content-Type': 'application/json'
+      }
+    }).then(handleKeywordData);
+  }
 });
 
 ////////////////////////

@@ -44,6 +44,7 @@ body {
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.3);
   padding: 3px;
+  border-radius: 4px;
 }
 
 .currentAuthor {
@@ -93,12 +94,15 @@ h5 {
 #open-sidebar {
   float: right;
   padding: 4px;
-  /* font-size: 2rem; */
+  font-size: 2rem;
   color: #ccc;
   text-shadow: 1.5px 1.5px 5px #000;
   text-align: center;
 }
 
+#closed-sidebar:hover {
+  cursor: pointer;
+}
 /* look into adding a light background on text */
 
 #logo {
@@ -178,13 +182,11 @@ a {
 
 .about {
   float: right;
-  order: 2;
   padding: 0 10px;
 }
 
 .contact {
   float: right;
-  order: 1;
   padding: 0 10px;
 }
 
@@ -198,4 +200,55 @@ a {
   .currentQuote {
     font-size: 1.5em;
   }
+}
+
+#modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-textbox {
+  background-color: #f4f4f4;
+  border-radius: 3px;
+  margin: 20% auto;
+  padding: 20px;
+  width: 70%;
+  height: 200px;
+  box-shadow: 0 5px 8px 0 rgba(255, 255, 255, 0.2),
+    0 7px 20px 0 rgba(255, 255, 255, 0.17);
+}
+
+.closeBtn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+}
+
+.closeBtn:hover,
+.closeBtn:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#openModal {
+  float: right;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}
+
+#openModal:hover {
+  color: #408c99;
 }

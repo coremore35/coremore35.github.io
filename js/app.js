@@ -129,7 +129,7 @@ $('form').on('submit', event => {
   $('.currentAuthor').remove();
 
   $.ajax({
-    url: `https://favqs.com/api/quotes/?type=tag&filter=${keywordQuery}`,
+    url: `https://favqs.com/api/quotes/?filter=${keywordQuery}`,
     headers: {
       Authorization: 'Bearer 6b4ebee16d4c5a07af274a23b80ed12c',
       // 'X-CSRF-TOKEN':'xxxxxxxxxxxxxxxxxxxx',
@@ -190,6 +190,27 @@ $('#open-sidebar').on('click', event => {
   $('#logo').animate({ opacity: 0.8 }, 2000);
   //
 });
+
+/////////////
+// ABOUT MODAL
+
+const $openBtn = $('#openModal');
+const $modal = $('#modal');
+const $closeBtn = $('.closeBtn');
+
+$openBtn.on(
+  'click',
+  (openingModal = () => {
+    $modal.css('display', 'block');
+  })
+);
+
+$closeBtn.on(
+  'click',
+  (openingModal = () => {
+    $modal.css('display', 'none');
+  })
+);
 
 // // TOGGLEWORKS
 // $('#closed-sidebar').on('click', event => {
